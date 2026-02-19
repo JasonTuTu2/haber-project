@@ -586,29 +586,29 @@
         </div>
     </div>
 
-    <!-- Environmental Impact Page -->
+    <!-- Natural Nitrogen Sources Page -->
     <div class="page" id="environmentalImpactPage">
         <button class="back-button" onclick="showFoodProduction()">← Back</button>
         
         <div class="container">
-            <h1>Environmental Challenges</h1>
-            <p class="subtitle">Understanding the Impact of Industrial Ammonia Production</p>
+            <h1>Natural Nitrogen Cycle</h1>
+            <p class="subtitle">Before and After Industrial Production</p>
 
-            <h2 class="section-title">2. Environmental Impact</h2>
+            <h2 class="section-title">2. Reliance on Natural Nitrogen Sources</h2>
 
         <div class="slider-container slide-up-init" id="sliderContainer2">
-            <!-- Emissions Side -->
-            <div class="slider-image" id="emissionsSide" style="background: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);">
-                <div class="slider-label">High Emissions</div>
-                <img src="images/stavingofffa.jpg" alt="Industrial emissions" style="opacity: 0.5;">
-                <div style="position: absolute; font-size: 4em; z-index: 10; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));">💨</div>
+            <!-- Natural Nitrogen Side -->
+            <div class="slider-image" id="emissionsSide" style="background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);">
+                <div class="slider-label">Natural Sources</div>
+                <img src="images/stavingofffa.jpg" alt="Natural nitrogen cycle" style="opacity: 0.5;">
+                <div style="position: absolute; font-size: 4em; z-index: 10; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));">🌍</div>
             </div>
 
-            <!-- Clean Energy Side -->
-            <div class="slider-image" id="cleanSide" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
-                <div class="slider-label">Renewable Solutions</div>
-                <img src="images/farmers-cultivating-crops-in-field-agriculture-workers-planting-and-harvesting-organic-produce-on-sunny-day-photo.jpeg" alt="Renewable energy" style="opacity: 0.5;">
-                <div style="position: absolute; font-size: 4em; z-index: 10; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));">☀️</div>
+            <!-- Synthetic Nitrogen Side -->
+            <div class="slider-image" id="cleanSide" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);">
+                <div class="slider-label">Synthetic Production</div>
+                <img src="images/farmers-cultivating-crops-in-field-agriculture-workers-planting-and-harvesting-organic-produce-on-sunny-day-photo.jpeg" alt="Synthetic nitrogen" style="opacity: 0.5;">
+                <div style="position: absolute; font-size: 4em; z-index: 10; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));">⚙️</div>
             </div>
 
             <!-- Slider Divider -->
@@ -619,25 +619,63 @@
         </div>
 
         <div class="info-text slide-up-init">
-            <p>The Haber Process accounts for 1-2% of global energy consumption and produces significant CO₂ emissions. However, shifting to renewable energy sources could dramatically reduce its environmental footprint.</p>
+            <p>Before the Haber Process, agriculture relied entirely on natural nitrogen sources like legume crops, manure, and nitrogen-fixing bacteria in soil. Today, industrial nitrogen production has fundamentally changed farming and food production capacity.</p>
         </div>
 
         <div class="stats slide-up-init">
             <div class="stat-card">
-                <h4>1-2%</h4>
-                <p>of global energy consumption used by the Haber Process.</p>
+                <h4>~50%</h4>
+                <p>of nitrogen in crops comes from synthetic fertilizers today.</p>
             </div>
             <div class="stat-card">
-                <h4>~500 Mt CO₂</h4>
-                <p>equivalent emissions annually from Haber facilities.</p>
+                <h4>Legume Rotation</h4>
+                <p>was the primary method of natural nitrogen replenishment.</p>
             </div>
             <div class="stat-card">
-                <h4>Renewable</h4>
-                <p>ammonia production shows promising potential.</p>
+                <h4>Population Growth</h4>
+                <p>made natural sources insufficient for modern demands.</p>
             </div>
         </div>
         
-        <p style="color: white; text-align: center; margin-top: 30px; line-height: 1.6; font-size: 1em;">While the Haber Process remains essential for food production, developing greener methods and renewable energy integration is critical for sustainable development.</p>
+        <p style="color: white; text-align: center; margin-top: 30px; line-height: 1.6; font-size: 1em;">The shift from natural nitrogen sources to industrial production enabled exponential growth in agricultural output, making it possible to feed our rapidly expanding global population.</p>
+        
+        <button class="nav-button slide-up-init" onclick="showConcerns()">
+            Next →
+        </button>
+        </div>
+    </div>
+
+    <!-- Concerns Page -->
+    <div class="page" id="concernsPage">
+        <button class="back-button" onclick="showNitrogenSources()">← Back</button>
+        
+        <div class="container">
+            <h1>Concerns and Challenges</h1>
+            <p class="subtitle">Understanding the Downsides of Industrial Ammonia Production</p>
+
+            <h2 class="section-title">1. Environmental - Greenhouse Gas Emissions</h2>
+            <div class="info-text slide-up-init">
+                <p>The Haber Process uses energy and fossil fuels (like natural gas) to provide the required high temperatures and pressures.</p>
+                <p style="margin-top: 15px;">This contributes significantly to greenhouse gas emissions, as the production of ammonia accounts for <strong>1 - 2% of global CO₂ emissions</strong>.</p>
+            </div>
+
+            <h2 class="section-title">2. Environmental - Water Pollution</h2>
+            <div class="animation-placeholder slide-up-init" id="waterPollutionAnimationSpace" style="height: 300px; background: rgba(59, 130, 246, 0.1); border: 2px dashed #3b82f6; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 20px 0; color: rgba(255, 255, 255, 0.5);">
+                [Animation space for water pollution]
+            </div>
+            <div class="info-text slide-up-init">
+                <p>Nitrogen from ammonia fertilizers will run off into bodies of water after heavy rainfall or irrigation.</p>
+                <p style="margin-top: 15px;">This richness of nutrients causes unhealthy amounts of algae growth that deprives aquatic wildlife of oxygen.</p>
+            </div>
+
+            <h2 class="section-title">3. Health & Safety</h2>
+            <div class="animation-placeholder slide-up-init" id="healthSafetyAnimationSpace" style="height: 300px; background: rgba(239, 68, 68, 0.1); border: 2px dashed #ef4444; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 20px 0; color: rgba(255, 255, 255, 0.5);">
+                [Animation space for health & safety]
+            </div>
+            <div class="info-text slide-up-init">
+                <p>Ammonia (NH₃) is corrosive and toxic at high concentrations.</p>
+                <p style="margin-top: 15px;">Effects include irritation and damage to the skin, eyes, and lungs if factory workers are exposed to these levels, with a major issue being <strong>respiratory distress</strong>.</p>
+            </div>
         </div>
     </div>
 
@@ -646,12 +684,14 @@
         let hasAnimatedIntro = false;
         let hasAnimatedFoodProduction = false;
         let hasAnimatedEnvironmentalImpact = false;
+        let hasAnimatedConcerns = false;
 
         // Navigation functions
         function showFoodProduction() {
             document.getElementById('introPage').classList.remove('active');
             document.getElementById('foodProductionPage').classList.add('active');
             document.getElementById('environmentalImpactPage').classList.remove('active');
+            document.getElementById('concernsPage').classList.remove('active');
 
             // Trigger slide-up animation only the first time
             if (!hasAnimatedFoodProduction) {
@@ -662,6 +702,26 @@
                 });
                 hasAnimatedFoodProduction = true;
             }
+        }
+
+        function showNitrogenSources() {
+            document.getElementById('introPage').classList.remove('active');
+            document.getElementById('foodProductionPage').classList.remove('active');
+            document.getElementById('environmentalImpactPage').classList.add('active');
+            document.getElementById('concernsPage').classList.remove('active');
+
+            // Trigger slide-up animation only the first time
+            if (!hasAnimatedEnvironmentalImpact) {
+                const animatedBlocks = document.querySelectorAll('#environmentalImpactPage .slide-up-init');
+                animatedBlocks.forEach((el, index) => {
+                    el.style.animationDelay = (index * 0.12) + 's';
+                    el.classList.add('slide-up-animate');
+                });
+                hasAnimatedEnvironmentalImpact = true;
+            }
+
+            // Initialize the second slider
+            initializeSlider2();
         }
 
         function showEnvironmentalImpact() {
@@ -680,6 +740,21 @@
 
             // Initialize the second slider
             initializeSlider2();
+        }
+
+        function showConcerns() {
+            document.getElementById('environmentalImpactPage').classList.remove('active');
+            document.getElementById('concernsPage').classList.add('active');
+
+            // Trigger slide-up animation only the first time
+            if (!hasAnimatedConcerns) {
+                const animatedBlocks = document.querySelectorAll('#concernsPage .slide-up-init');
+                animatedBlocks.forEach((el, index) => {
+                    el.style.animationDelay = (index * 0.12) + 's';
+                    el.classList.add('slide-up-animate');
+                });
+                hasAnimatedConcerns = true;
+            }
         }
 
         function showIntro() {
