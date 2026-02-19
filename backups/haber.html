@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Haber Process - Societal Benefits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: black;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            border: 1px solid rgba(176, 176, 176, 0.5);
+            border-radius: 15px;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: white;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #7dd3fc;
+            padding-bottom: 10px;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .pre-haber {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            z-index: 1;
+        }
+
+        .pre-haber img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modern-agriculture {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            z-index: 0;
+        }
+
+        .modern-agriculture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-label {
+            position: absolute;
+            top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .pre-haber .slider-label {
+            left: 20px;
+        }
+
+        .modern-agriculture .slider-label {
+            right: 20px;
+        }
+
+        .crop-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 40px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .crop {
+            font-size: 3em;
+            animation: grow 2s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .pre-haber .crop {
+            font-size: 1.5em;
+            opacity: 0.7;
+        }
+
+        .modern-agriculture .crop {
+            font-size: 4em;
+        }
+
+        @keyframes grow {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: #7dd3fc;
+            cursor: ew-resize;
+            z-index: 5;
+            transition: left 0.1s ease;
+        }
+
+        .slider-handle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border: 3px solid #7dd3fc;
+        }
+
+        .slider-handle::after {
+            content: '⟷';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #7dd3fc;
+            font-weight: bold;
+        }
+
+        .slider-divider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 0;
+            height: 100%;
+            border-left: 2px dashed rgba(125, 211, 252, 0.8);
+            z-index: 4;
+            transition: left 0.1s ease;
+        }
+
+        .info-text {
+            padding: 20px;
+            margin-top: 20px;
+            line-height: 1.6;
+            color: white;
+        }
+
+        .info-text h3 {
+            color: #7dd3fc;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.7) 0%, rgba(14, 165, 233, 0.7) 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        .stat-card h4 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Haber Process</h1>
+        <p class="subtitle">Transforming Agriculture and Feeding the World</p>
+
+        <h2 class="section-title">Food Production</h2>
+
+        <div class="slider-container" id="sliderContainer">
+            <!-- Pre-Haber Side -->
+            <div class="slider-image pre-haber" id="preHaber">
+                <div class="slider-label">Pre-Haber</div>
+                <img src="images/stavingofffa.jpg" alt="Pre-Haber agriculture">
+            </div>
+
+            <!-- Modern Agriculture Side -->
+            <div class="slider-image modern-agriculture" id="modernAg">
+                <div class="slider-label">Modern Agriculture</div>
+                <img src="images/farmers-cultivating-crops-in-field-agriculture-workers-planting-and-harvesting-organic-produce-on-sunny-day-photo.jpeg" alt="Modern agriculture">
+            </div>
+
+            <!-- Slider Divider -->
+            <div class="slider-divider" id="divider"></div>
+
+            <!-- Slider Handle -->
+            <div class="slider-handle" id="handle"></div>
+        </div>
+
+        <div class="info-text">
+            <h3>What is the Haber Process?</h3>
+            <p>The Haber Process, developed by Fritz Haber in 1909, is a method for synthesizing ammonia (NH₃) from nitrogen and hydrogen gases. This breakthrough enabled the mass production of nitrogen-based fertilizers, revolutionizing agriculture and dramatically increasing crop yields worldwide.</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h4>50%</h4>
+                <p>of world's food production depends on Haber Process fertilizers</p>
+            </div>
+            <div class="stat-card">
+                <h4>4x</h4>
+                <p>increase in crop yields since the introduction of synthetic fertilizers</p>
+            </div>
+            <div class="stat-card">
+                <h4>8B+</h4>
+                <p>people fed today thanks to increased agricultural productivity</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sliderContainer = document.getElementById('sliderContainer');
+        const handle = document.getElementById('handle');
+        const divider = document.getElementById('divider');
+        const preHaber = document.getElementById('preHaber');
+        const modernAg = document.getElementById('modernAg');
+
+        let isDragging = false;
+        let currentPosition = 50; // Start at 50%
+
+        // Update slider position
+        function updateSlider(position) {
+            // Clamp position between 0 and 100
+            position = Math.max(0, Math.min(100, position));
+            currentPosition = position;
+
+            // Update handle and divider position
+            handle.style.left = position + '%';
+            divider.style.left = position + '%';
+
+            // Update image clipping
+            preHaber.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+            modernAg.style.clipPath = `inset(0 0 0 ${position}%)`;
+        }
+
+        // Mouse events
+        handle.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+
+            const rect = sliderContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percentage = (x / rect.width) * 100;
+            updateSlider(percentage);
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch events for mobile
+        handle.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            e.preventDefault();
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+
+            const rect = sliderContainer.getBoundingClientRect();
+            const touch = e.touches[0];
+            const x = touch.clientX - rect.left;
+            const percentage = (x / rect.width) * 100;
+            updateSlider(percentage);
+        });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Click on container to move slider
+        sliderContainer.addEventListener('click', (e) => {
+            if (e.target === handle) return;
+            
+            const rect = sliderContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percentage = (x / rect.width) * 100;
+            updateSlider(percentage);
+        });
+
+        // Initialize slider
+        updateSlider(50);
+    </script>
+</body>
+</html>
