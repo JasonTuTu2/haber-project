@@ -146,6 +146,24 @@
             display: block;
         }
 
+        /* tighter wrapper for greenhouse image so border hugs image */
+        .image-placeholder.gh-image {
+            width: auto;
+            display: inline-block;
+            padding: 6px;
+            border-radius: 10px;
+            border: 2px dashed rgba(125, 211, 252, 0.8);
+            background: transparent;
+        }
+
+        .image-placeholder.gh-image img {
+            width: auto;
+            height: auto;
+            max-width: 320px;
+            max-height: 220px;
+            display: block;
+        }
+
         .reaction-block {
             margin: 22px 0;
             padding: 18px 16px;
@@ -929,6 +947,9 @@
             <p class="subtitle">Understanding the Downsides of Industrial Ammonia Production</p>
 
             <h2 class="section-title">Greenhouse Gas Emissions</h2>
+            <div class="image-placeholder gh-image slide-up-init" style="margin-bottom:16px;">
+                <img src="images/ammonia-factory-removebg-preview.png" alt="Ammonia factory" style="display:block; max-height:220px; max-width:320px; object-fit:contain;">
+            </div>
             <div class="info-text slide-up-init">
                 <p>The Haber Process uses energy and fossil fuels (like natural gas) to provide the required high temperatures and pressures.</p>
                 <p style="margin-top: 15px;">This contributes significantly to greenhouse gas emissions, as the production of ammonia accounts for <strong>1 - 2% of global CO₂ emissions</strong>.</p>
@@ -990,7 +1011,7 @@
                         <div class="warning-symbol">🥽</div>
                         <div class="warning-symbol">🫁</div>
                     </div>
-                    <div class="info-bubble">Ammonia (NH₃) is corrosive and toxic at high concentrations. Effects include irritation and damage to the skin, eyes, and lungs if factory workers are exposed to these levels, with a major concern being respiratory distress.</div>
+                    <div class="info-bubble">Ammonia (NH₃) is <strong>corrosive</strong> and <strong>toxic</strong> at high concentrations. Effects include <strong>irritation</strong> and damage to the skin, eyes, and lungs if factory workers are exposed to these levels, with a major concern being <strong>respiratory distress</strong>.</div>
                 </div>
             </div>
         </div>
