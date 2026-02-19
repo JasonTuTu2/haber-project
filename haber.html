@@ -579,6 +579,65 @@
         </div>
         
         <p style="color: white; text-align: center; margin-top: 30px; line-height: 1.6; font-size: 1em;">The Haber Process is a key contributor to humanity's food supply and production, allowing for our rapid population growth in recent years.</p>
+        
+        <button class="nav-button slide-up-init" onclick="showEnvironmentalImpact()">
+            Next →
+        </button>
+        </div>
+    </div>
+
+    <!-- Environmental Impact Page -->
+    <div class="page" id="environmentalImpactPage">
+        <button class="back-button" onclick="showFoodProduction()">← Back</button>
+        
+        <div class="container">
+            <h1>Environmental Challenges</h1>
+            <p class="subtitle">Understanding the Impact of Industrial Ammonia Production</p>
+
+            <h2 class="section-title">2. Environmental Impact</h2>
+
+        <div class="slider-container slide-up-init" id="sliderContainer2">
+            <!-- Emissions Side -->
+            <div class="slider-image" id="emissionsSide" style="background: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);">
+                <div class="slider-label">High Emissions</div>
+                <img src="images/stavingofffa.jpg" alt="Industrial emissions" style="opacity: 0.5;">
+                <div style="position: absolute; font-size: 4em; z-index: 10; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));">💨</div>
+            </div>
+
+            <!-- Clean Energy Side -->
+            <div class="slider-image" id="cleanSide" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                <div class="slider-label">Renewable Solutions</div>
+                <img src="images/farmers-cultivating-crops-in-field-agriculture-workers-planting-and-harvesting-organic-produce-on-sunny-day-photo.jpeg" alt="Renewable energy" style="opacity: 0.5;">
+                <div style="position: absolute; font-size: 4em; z-index: 10; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));">☀️</div>
+            </div>
+
+            <!-- Slider Divider -->
+            <div class="slider-divider" id="divider2"></div>
+
+            <!-- Slider Handle -->
+            <div class="slider-handle" id="handle2"></div>
+        </div>
+
+        <div class="info-text slide-up-init">
+            <p>The Haber Process accounts for 1-2% of global energy consumption and produces significant CO₂ emissions. However, shifting to renewable energy sources could dramatically reduce its environmental footprint.</p>
+        </div>
+
+        <div class="stats slide-up-init">
+            <div class="stat-card">
+                <h4>1-2%</h4>
+                <p>of global energy consumption used by the Haber Process.</p>
+            </div>
+            <div class="stat-card">
+                <h4>~500 Mt CO₂</h4>
+                <p>equivalent emissions annually from Haber facilities.</p>
+            </div>
+            <div class="stat-card">
+                <h4>Renewable</h4>
+                <p>ammonia production shows promising potential.</p>
+            </div>
+        </div>
+        
+        <p style="color: white; text-align: center; margin-top: 30px; line-height: 1.6; font-size: 1em;">While the Haber Process remains essential for food production, developing greener methods and renewable energy integration is critical for sustainable development.</p>
         </div>
     </div>
 
@@ -586,21 +645,41 @@
         // Track whether we've already animated each page
         let hasAnimatedIntro = false;
         let hasAnimatedFoodProduction = false;
+        let hasAnimatedEnvironmentalImpact = false;
 
         // Navigation functions
         function showFoodProduction() {
             document.getElementById('introPage').classList.remove('active');
             document.getElementById('foodProductionPage').classList.add('active');
+            document.getElementById('environmentalImpactPage').classList.remove('active');
 
             // Trigger slide-up animation only the first time
             if (!hasAnimatedFoodProduction) {
-                const animatedBlocks = document.querySelectorAll('.slide-up-init');
+                const animatedBlocks = document.querySelectorAll('#foodProductionPage .slide-up-init');
                 animatedBlocks.forEach((el, index) => {
                     el.style.animationDelay = (index * 0.12) + 's';
                     el.classList.add('slide-up-animate');
                 });
                 hasAnimatedFoodProduction = true;
             }
+        }
+
+        function showEnvironmentalImpact() {
+            document.getElementById('foodProductionPage').classList.remove('active');
+            document.getElementById('environmentalImpactPage').classList.add('active');
+
+            // Trigger slide-up animation only the first time
+            if (!hasAnimatedEnvironmentalImpact) {
+                const animatedBlocks = document.querySelectorAll('#environmentalImpactPage .slide-up-init');
+                animatedBlocks.forEach((el, index) => {
+                    el.style.animationDelay = (index * 0.12) + 's';
+                    el.classList.add('slide-up-animate');
+                });
+                hasAnimatedEnvironmentalImpact = true;
+            }
+
+            // Initialize the second slider
+            initializeSlider2();
         }
 
         function showIntro() {
@@ -696,6 +775,85 @@
 
         // Initialize slider
         updateSlider(50);
+
+        // Second slider for environmental impact page
+        function initializeSlider2() {
+            const sliderContainer2 = document.getElementById('sliderContainer2');
+            const handle2 = document.getElementById('handle2');
+            const divider2 = document.getElementById('divider2');
+            const emissionsSide = document.getElementById('emissionsSide');
+            const cleanSide = document.getElementById('cleanSide');
+
+            let isDragging2 = false;
+            let currentPosition2 = 50; // Start at 50%
+
+            // Update slider position
+            function updateSlider2(position) {
+                // Clamp position between 0 and 100
+                position = Math.max(0, Math.min(100, position));
+                currentPosition2 = position;
+
+                // Update handle and divider position
+                handle2.style.left = position + '%';
+                divider2.style.left = position + '%';
+
+                // Update image clipping
+                emissionsSide.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+                cleanSide.style.clipPath = `inset(0 0 0 ${position}%)`;
+            }
+
+            // Mouse events
+            handle2.addEventListener('mousedown', (e) => {
+                isDragging2 = true;
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging2) return;
+
+                const rect = sliderContainer2.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const percentage = (x / rect.width) * 100;
+                updateSlider2(percentage);
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging2 = false;
+            });
+
+            // Touch events for mobile
+            handle2.addEventListener('touchstart', (e) => {
+                isDragging2 = true;
+                e.preventDefault();
+            });
+
+            document.addEventListener('touchmove', (e) => {
+                if (!isDragging2) return;
+
+                const rect = sliderContainer2.getBoundingClientRect();
+                const touch = e.touches[0];
+                const x = touch.clientX - rect.left;
+                const percentage = (x / rect.width) * 100;
+                updateSlider2(percentage);
+            });
+
+            document.addEventListener('touchend', () => {
+                isDragging2 = false;
+            });
+
+            // Click on container to move slider
+            sliderContainer2.addEventListener('click', (e) => {
+                if (e.target === handle2) return;
+                
+                const rect = sliderContainer2.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const percentage = (x / rect.width) * 100;
+                updateSlider2(percentage);
+            });
+
+            // Initialize slider
+            updateSlider2(50);
+        }
     </script>
 </body>
 </html>
