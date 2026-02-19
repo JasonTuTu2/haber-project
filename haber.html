@@ -91,30 +91,75 @@
             margin-bottom: 10px;
         }
 
-        .intro-stats {
+        .chemicals {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin: 26px 0 10px;
         }
 
-        .intro-stat-card {
-            background: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 100%);
+        .chemical-card {
+            border: 1px solid rgba(176, 176, 176, 0.7);
+            border-radius: 14px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .chemical-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .chemical-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2em;
             color: white;
-            padding: 25px;
-            border-radius: 10px;
+            margin: 0;
+        }
+
+        .chemical-tag {
+            font-weight: 700;
+            color: #7dd3fc;
+            letter-spacing: 0.3px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border-radius: 12px;
+            border: 2px dashed rgba(125, 211, 252, 0.8);
+            background: rgba(125, 211, 252, 0.06);
+            display: grid;
+            place-items: center;
+            color: rgba(255, 255, 255, 0.85);
             text-align: center;
-            box-shadow: 0 0 15px rgba(125, 211, 252, 0.4);
+            padding: 14px;
         }
 
-        .intro-stat-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
-        .intro-stat-card p {
-            font-size: 0.95em;
-            opacity: 0.95;
+        .reaction-block {
+            margin: 22px 0;
+            padding: 18px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(125, 211, 252, 0.45);
+            background: rgba(125, 211, 252, 0.08);
+        }
+
+        .reaction-equation {
+            text-align: center;
+            font-size: 1.45em;
+            color: #7dd3fc;
+            margin: 8px 0 0;
+            letter-spacing: 0.5px;
         }
 
         .nav-button {
@@ -166,7 +211,7 @@
             transform: translateY(-2px);
         }
 
-        /* Slide-up animation for Food Production page */
+        /* Slide-up animation */
         .slide-up-init {
             opacity: 0;
             transform: translateY(30px);
@@ -426,54 +471,58 @@
     <!-- Introduction Page -->
     <div class="page active" id="introPage">
         <div class="intro-container">
-            <h1 class="intro-title">The Haber Process</h1>
+            <h1 class="intro-title slide-up-init">The Haber Process</h1>
             
-            <div class="intro-content">
-                <p>The Haber Process, also known as the Haber-Bosch Process, is one of the most important industrial chemical reactions in human history. Developed by German chemists Fritz Haber and Carl Bosch in the early 20th century, this process revolutionized agriculture and enabled the production of synthetic fertilizers on an industrial scale.</p>
+            <div class="intro-content slide-up-init">
+                <p><strong>Haber Process:</strong> industrial method used to synthesize ammonia (NH₃) from nitrogen and hydrogen gases on a large scale.</p>
 
-                <h2>What is the Haber Process?</h2>
-                <p>The Haber Process is a method for synthesizing ammonia (NH₃) from nitrogen gas (N₂) and hydrogen gas (H₂) under high pressure and temperature, using an iron catalyst. The chemical equation is:</p>
-                <p style="text-align: center; font-size: 1.3em; color: #7dd3fc; margin: 20px 0;">
-                    N₂ + 3H₂ ⇌ 2NH₃
-                </p>
+                <div class="chemicals">
+                    <div class="chemical-card">
+                        <div class="chemical-header">
+                            <h3>Nitrogen</h3>
+                            <div class="chemical-tag">N₂</div>
+                        </div>
+                        <div class="image-placeholder">
+                            <img src="images/liquid-nitrogen-gas.png" alt="Nitrogen">
+                        </div>
+                    </div>
+                    <div class="chemical-card">
+                        <div class="chemical-header">
+                            <h3>Hydrogen</h3>
+                            <div class="chemical-tag">H₂</div>
+                        </div>
+                        <div class="image-placeholder">
+                            <img src="images/liquefied-hydrogen-industrial-gas-container-creative-abstract-fuel-industry-manufacturing-business-concept-d-render-illustration-70669258-removebg-preview.png" alt="Hydrogen">
+                        </div>
+                    </div>
+                    <div class="chemical-card">
+                        <div class="chemical-header">
+                            <h3>Ammonia</h3>
+                            <div class="chemical-tag">NH₃</div>
+                        </div>
+                        <div class="image-placeholder">
+                            <img src="images/ammonia.png" alt="Ammonia">
+                        </div>
+                    </div>
+                </div>
 
-                <h2>Key Features</h2>
-                <ul>
-                    <li><strong>Temperature:</strong> Typically operates at 400-500°C</li>
-                    <li><strong>Pressure:</strong> Requires high pressure (150-300 atmospheres)</li>
-                    <li><strong>Catalyst:</strong> Uses iron-based catalysts to speed up the reaction</li>
-                    <li><strong>Reversibility:</strong> The reaction is reversible, requiring careful optimization</li>
-                </ul>
+                <h2>What it does</h2>
+                <p>Combines nitrogen gas (N₂), usually obtained from air, with hydrogen gas (H₂), under specific conditions to produce ammonia.</p>
 
-                <h2>Historical Significance</h2>
-                <p>Before the Haber Process, the world relied on natural sources of nitrogen for fertilizers, such as guano (bird droppings) and mineral deposits. These sources were limited and could not support the growing global population. The Haber Process made it possible to produce ammonia on an industrial scale, fundamentally changing agriculture and food production worldwide.</p>
+                <div class="reaction-block">
+                    <p style="margin: 0; color: white;"><strong>Overall chemical reaction:</strong></p>
+                    <p class="reaction-equation">N₂(g) + 3H₂(g) ⇌ 2NH₃(g)</p>
+                    <p style="margin: 12px 0 0; color: rgba(255,255,255,0.92);">A reversible reaction, it can go forward to produce ammonia and backward to produce nitrogen and hydrogen.</p>
+                </div>
 
-                <h2>Impact on Society</h2>
-                <p>The ability to produce synthetic fertilizers has had profound effects on human civilization. It has enabled:</p>
-                <ul>
-                    <li>Increased crop yields and food production</li>
-                    <li>Support for a growing global population</li>
-                    <li>Reduction in widespread famine</li>
-                    <li>Modern agricultural practices</li>
-                </ul>
+                <h2>How it works</h2>
+                <p>In the industry, the Haber Process sees nitrogen and hydrogen gases pumped into chambers of high temperatures and pressure, where they undergo the redox reaction to form ammonia.</p>
+
+                <h2>History</h2>
+                <p>The method was developed by Fritz Haber in the early 1900s and scaled for industrial use by Carl Bosch, allowing for large scale ammonia production.</p>
             </div>
 
-            <div class="intro-stats">
-                <div class="intro-stat-card">
-                    <h3>1909</h3>
-                    <p>Year Fritz Haber first demonstrated the process</p>
-                </div>
-                <div class="intro-stat-card">
-                    <h3>1913</h3>
-                    <p>Year Carl Bosch scaled it for industrial production</p>
-                </div>
-                <div class="intro-stat-card">
-                    <h3>Nobel Prize</h3>
-                    <p>Haber (1918) and Bosch (1931) both won Nobel Prizes</p>
-                </div>
-            </div>
-
-            <button class="nav-button" onclick="showFoodProduction()">
+            <button class="nav-button slide-up-init" onclick="showFoodProduction()">
                 Next →
             </button>
         </div>
@@ -534,7 +583,8 @@
     </div>
 
     <script>
-        // Track whether we've already animated the Food Production page
+        // Track whether we've already animated each page
+        let hasAnimatedIntro = false;
         let hasAnimatedFoodProduction = false;
 
         // Navigation functions
@@ -557,6 +607,18 @@
             document.getElementById('foodProductionPage').classList.remove('active');
             document.getElementById('introPage').classList.add('active');
         }
+
+        // Intro page slide-up on first load
+        window.addEventListener('DOMContentLoaded', () => {
+            if (!hasAnimatedIntro) {
+                const introBlocks = document.querySelectorAll('#introPage .slide-up-init');
+                introBlocks.forEach((el, index) => {
+                    el.style.animationDelay = (index * 0.12) + 's';
+                    el.classList.add('slide-up-animate');
+                });
+                hasAnimatedIntro = true;
+            }
+        });
 
         // Slider functionality
         const sliderContainer = document.getElementById('sliderContainer');
