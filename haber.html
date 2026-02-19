@@ -481,6 +481,7 @@
 
         .nh3-cloud {
             position: relative;
+            margin-right: 50px;
             width: 150px;
             height: 100px;
             background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(200, 200, 200, 0.2));
@@ -529,6 +530,28 @@
 
         .nh3-cloud:hover .nh3-label {
             opacity: 0;
+        }
+
+        .info-bubble {
+            position: absolute;
+            bottom: -80px;
+            right: -350px;
+            width: 280px;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 0.95em;
+            line-height: 1.5;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border: 2px solid rgba(239, 68, 68, 0.6);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .nh3-cloud:hover .info-bubble {
+            opacity: 1;
         }
 
         .factory-worker {
@@ -967,11 +990,8 @@
                         <div class="warning-symbol">🥽</div>
                         <div class="warning-symbol">🫁</div>
                     </div>
+                    <div class="info-bubble">Ammonia (NH₃) is corrosive and toxic at high concentrations. Effects include irritation and damage to the skin, eyes, and lungs if factory workers are exposed to these levels, with a major concern being respiratory distress.</div>
                 </div>
-            </div>
-            <div class="info-text slide-up-init">
-                <p>Ammonia (NH₃) is corrosive and toxic at high concentrations.</p>
-                <p style="margin-top: 15px;">Effects include irritation and damage to the skin, eyes, and lungs if factory workers are exposed to these levels, with a major concern being <strong>respiratory distress</strong>.</p>
             </div>
         </div>
     </div>
