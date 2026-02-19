@@ -465,6 +465,184 @@
             font-size: 0.9em;
             opacity: 0.9;
         }
+
+        /* Water Pollution Animation */
+        .water-pollution-animation {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(to bottom, #87ceeb 0%, #4a90e2 50%, #1e90ff 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .animation-sky {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to bottom, #87ceeb 0%, #4a90e2 100%);
+            z-index: 1;
+        }
+
+        .animation-crops {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em;
+            z-index: 2;
+        }
+
+        .rain-drops {
+            position: absolute;
+            width: 100%;
+            height: 40%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .rain-drop {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background: #e0f4ff;
+            opacity: 0;
+            border-radius: 2px;
+        }
+
+        .rain-drop:nth-child(1) { left: 10%; animation: rainFall 1s ease-in forwards; animation-delay: 0.2s; }
+        .rain-drop:nth-child(2) { left: 20%; animation: rainFall 1s ease-in forwards; animation-delay: 0.4s; }
+        .rain-drop:nth-child(3) { left: 30%; animation: rainFall 1s ease-in forwards; animation-delay: 0.3s; }
+        .rain-drop:nth-child(4) { left: 40%; animation: rainFall 1s ease-in forwards; animation-delay: 0.5s; }
+        .rain-drop:nth-child(5) { left: 50%; animation: rainFall 1s ease-in forwards; animation-delay: 0.2s; }
+        .rain-drop:nth-child(6) { left: 60%; animation: rainFall 1s ease-in forwards; animation-delay: 0.4s; }
+        .rain-drop:nth-child(7) { left: 70%; animation: rainFall 1s ease-in forwards; animation-delay: 0.3s; }
+        .rain-drop:nth-child(8) { left: 80%; animation: rainFall 1s ease-in forwards; animation-delay: 0.5s; }
+        .rain-drop:nth-child(9) { left: 90%; animation: rainFall 1s ease-in forwards; animation-delay: 0.2s; }
+        .rain-drop:nth-child(10) { left: 15%; animation: rainFall 1s ease-in forwards; animation-delay: 0.6s; }
+        .rain-drop:nth-child(11) { left: 45%; animation: rainFall 1s ease-in forwards; animation-delay: 0.5s; }
+        .rain-drop:nth-child(12) { left: 75%; animation: rainFall 1s ease-in forwards; animation-delay: 0.35s; }
+
+        .runoff-stream {
+            position: absolute;
+            width: 100px;
+            height: 120px;
+            bottom: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to bottom, rgba(100, 180, 255, 0.9), rgba(100, 180, 255, 0.4), transparent);
+            border-radius: 30px;
+            opacity: 0;
+            z-index: 3;
+            animation: runoffFlow 2s ease-in forwards;
+            animation-delay: 1.2s;
+            box-shadow: 0 0 20px rgba(100, 180, 255, 0.6);
+        }
+
+        .lake-water {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #1e90ff;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .animation-ground {
+            position: absolute;
+            bottom: 50%;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background: linear-gradient(to bottom, #8b6f47 0%, #6b5a3d 100%);
+            z-index: 1;
+        }
+
+        .lake-algae {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #1e90ff;
+            opacity: 0;
+            z-index: 2;
+            animation: algaeGrowth 2s ease-in forwards;
+            animation-delay: 3.2s;
+        }
+
+        .fish {
+            position: absolute;
+            font-size: 1.5em;
+            z-index: 3;
+            animation: fishFade 1.5s ease-in forwards;
+            animation-delay: 4.5s;
+        }
+
+        .fish:nth-child(1) {
+            bottom: 30%;
+            left: 25%;
+        }
+
+        .fish:nth-child(2) {
+            bottom: 50%;
+            left: 60%;
+        }
+
+        .fish:nth-child(3) {
+            bottom: 40%;
+            left: 75%;
+        }
+
+        @keyframes rainFall {
+            0% {
+                opacity: 1;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(100px);
+            }
+        }
+
+        @keyframes runoffFlow {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(60px);
+            }
+        }
+
+        @keyframes algaeGrowth {
+            0% {
+                opacity: 0;
+                background: #1e90ff;
+            }
+            100% {
+                opacity: 1;
+                background: #3db84a;
+            }
+        }
+
+        @keyframes fishFade {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -653,28 +831,65 @@
             <h1>Concerns and Challenges</h1>
             <p class="subtitle">Understanding the Downsides of Industrial Ammonia Production</p>
 
-            <h2 class="section-title">1. Environmental - Greenhouse Gas Emissions</h2>
+            <h2 class="section-title">Greenhouse Gas Emissions</h2>
             <div class="info-text slide-up-init">
                 <p>The Haber Process uses energy and fossil fuels (like natural gas) to provide the required high temperatures and pressures.</p>
                 <p style="margin-top: 15px;">This contributes significantly to greenhouse gas emissions, as the production of ammonia accounts for <strong>1 - 2% of global CO₂ emissions</strong>.</p>
             </div>
 
-            <h2 class="section-title">2. Environmental - Water Pollution</h2>
-            <div class="animation-placeholder slide-up-init" id="waterPollutionAnimationSpace" style="height: 300px; background: rgba(59, 130, 246, 0.1); border: 2px dashed #3b82f6; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 20px 0; color: rgba(255, 255, 255, 0.5);">
-                [Animation space for water pollution]
+            <h2 class="section-title">Water Pollution</h2>
+            <button id="rainButton" style="display: block; margin: 20px auto; background: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 100%); color: white; border: none; padding: 12px 35px; font-size: 1.1em; font-weight: 600; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 15px rgba(125, 211, 252, 0.4); transition: all 0.3s ease; font-family: 'Montserrat', sans-serif;">Rain</button>
+            <div class="water-pollution-animation slide-up-init" id="waterAnimationContainer">
+                <div class="animation-sky"></div>
+                <div class="rain-drops">
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                </div>
+                <div class="animation-crops" style="left: 5%; bottom: 48%;">🌾</div>
+                <div class="animation-crops" style="left: 12%; bottom: 49%;">🌾</div>
+                <div class="animation-crops" style="left: 19%; bottom: 48%;">🌾</div>
+                <div class="animation-crops" style="left: 26%; bottom: 49%;">🌾</div>
+                <div class="animation-crops" style="left: 33%; bottom: 48%;">🌾</div>
+                <div class="animation-crops" style="left: 40%; bottom: 49%;">🌾</div>
+                <div class="animation-crops" style="left: 47%; bottom: 48%;">🌾</div>
+                <div class="animation-crops" style="left: 54%; bottom: 49%;">🌾</div>
+                <div class="animation-crops" style="left: 61%; bottom: 48%;">🌾</div>
+                <div class="animation-crops" style="left: 68%; bottom: 49%;">🌾</div>
+                <div class="animation-crops" style="left: 75%; bottom: 48%;">🌾</div>
+                <div class="animation-crops" style="left: 82%; bottom: 49%;">🌾</div>
+                <div class="animation-crops" style="left: 89%; bottom: 48%;">🌾</div>
+                <div class="animation-crops" style="left: 96%; bottom: 49%;">🌾</div>
+                <div class="animation-ground"></div>
+                <div class="runoff-stream"></div>
+                <div class="lake-water">
+                    <div class="fish">🐟</div>
+                    <div class="fish">🐟</div>
+                    <div class="fish">🐟</div>
+                </div>
+                <div class="lake-algae"></div>
             </div>
             <div class="info-text slide-up-init">
                 <p>Nitrogen from ammonia fertilizers will run off into bodies of water after heavy rainfall or irrigation.</p>
                 <p style="margin-top: 15px;">This richness of nutrients causes unhealthy amounts of algae growth that deprives aquatic wildlife of oxygen.</p>
             </div>
 
-            <h2 class="section-title">3. Health & Safety</h2>
+            <h2 class="section-title">Toxicity</h2>
             <div class="animation-placeholder slide-up-init" id="healthSafetyAnimationSpace" style="height: 300px; background: rgba(239, 68, 68, 0.1); border: 2px dashed #ef4444; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 20px 0; color: rgba(255, 255, 255, 0.5);">
                 [Animation space for health & safety]
             </div>
             <div class="info-text slide-up-init">
                 <p>Ammonia (NH₃) is corrosive and toxic at high concentrations.</p>
-                <p style="margin-top: 15px;">Effects include irritation and damage to the skin, eyes, and lungs if factory workers are exposed to these levels, with a major issue being <strong>respiratory distress</strong>.</p>
+                <p style="margin-top: 15px;">Effects include irritation and damage to the skin, eyes, and lungs if factory workers are exposed to these levels, with a major concern being <strong>respiratory distress</strong>.</p>
             </div>
         </div>
     </div>
@@ -929,6 +1144,14 @@
             // Initialize slider
             updateSlider2(50);
         }
+
+        // Rain button functionality
+        document.getElementById('rainButton').addEventListener('click', function() {
+            const container = document.getElementById('waterAnimationContainer');
+            // Remove and re-add to restart animation
+            const clone = container.cloneNode(true);
+            container.parentNode.replaceChild(clone, container);
+        });
     </script>
 </body>
 </html>
