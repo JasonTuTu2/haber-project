@@ -466,6 +466,80 @@
             opacity: 0.9;
         }
 
+        /* Toxicity Animation */
+        .toxicity-animation {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nh3-cloud {
+            position: relative;
+            width: 150px;
+            height: 100px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(200, 200, 200, 0.2));
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nh3-label {
+            font-size: 1.8em;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .warning-symbols {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .warning-symbol {
+            font-size: 2.5em;
+            filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+        }
+
+        .nh3-cloud:hover {
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+            background: radial-gradient(circle at 30% 30%, rgba(255, 100, 100, 0.5), rgba(200, 100, 100, 0.3));
+        }
+
+        .nh3-cloud:hover .warning-symbols {
+            opacity: 1;
+        }
+
+        .nh3-cloud:hover .nh3-label {
+            opacity: 0;
+        }
+
+        .factory-worker {
+            position: absolute;
+            left: 30px;
+            bottom: 20px;
+            font-size: 4em;
+            transform: scaleX(-1);
+            filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+        }
+
         /* Water Pollution Animation */
         .water-pollution-animation {
             position: relative;
@@ -884,8 +958,16 @@
             </div>
 
             <h2 class="section-title">Toxicity</h2>
-            <div class="animation-placeholder slide-up-init" id="healthSafetyAnimationSpace" style="height: 300px; background: rgba(239, 68, 68, 0.1); border: 2px dashed #ef4444; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 20px 0; color: rgba(255, 255, 255, 0.5);">
-                [Animation space for health & safety]
+            <div class="toxicity-animation slide-up-init">
+                <div class="factory-worker">👷</div>
+                <div class="nh3-cloud">
+                    <div class="nh3-label">NH₃</div>
+                    <div class="warning-symbols">
+                        <div class="warning-symbol">⚠️</div>
+                        <div class="warning-symbol">🥽</div>
+                        <div class="warning-symbol">🫁</div>
+                    </div>
+                </div>
             </div>
             <div class="info-text slide-up-init">
                 <p>Ammonia (NH₃) is corrosive and toxic at high concentrations.</p>
@@ -1146,11 +1228,32 @@
         }
 
         // Rain button functionality
+        window.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('waterAnimationContainer');
+            if (container) {
+                const rainDrops = container.querySelectorAll('.rain-drop');
+                const runoffStream = container.querySelector('.runoff-stream');
+                const lakeAlgae = container.querySelector('.lake-algae');
+                const fish = container.querySelectorAll('.fish');
+                
+                rainDrops.forEach(drop => drop.style.animationPlayState = 'paused');
+                if (runoffStream) runoffStream.style.animationPlayState = 'paused';
+                if (lakeAlgae) lakeAlgae.style.animationPlayState = 'paused';
+                fish.forEach(f => f.style.animationPlayState = 'paused');
+            }
+        });
+
         document.getElementById('rainButton').addEventListener('click', function() {
             const container = document.getElementById('waterAnimationContainer');
-            // Remove and re-add to restart animation
-            const clone = container.cloneNode(true);
-            container.parentNode.replaceChild(clone, container);
+            const rainDrops = container.querySelectorAll('.rain-drop');
+            const runoffStream = container.querySelector('.runoff-stream');
+            const lakeAlgae = container.querySelector('.lake-algae');
+            const fish = container.querySelectorAll('.fish');
+            
+            rainDrops.forEach(drop => drop.style.animationPlayState = 'running');
+            if (runoffStream) runoffStream.style.animationPlayState = 'running';
+            if (lakeAlgae) lakeAlgae.style.animationPlayState = 'running';
+            fish.forEach(f => f.style.animationPlayState = 'running');
         });
     </script>
 </body>
