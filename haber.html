@@ -323,19 +323,30 @@
         .slider-label {
             position: absolute;
             top: 20px;
-            font-size: 1.5em;
-            font-weight: bold;
+            font-size: 1.6em;
+            font-weight: 800;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            z-index: 10;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            z-index: 20;
+            padding: 8px 12px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
         }
 
         .pre-haber .slider-label {
             left: 20px;
+            background: rgba(0,0,0,0.65);
+            color: #fff;
         }
 
         .modern-agriculture .slider-label {
             right: 20px;
+            background: rgba(255,255,255,0.88);
+            color: #111;
+            text-shadow: none;
         }
 
         .moving-crop {
@@ -884,16 +895,15 @@
         <button class="back-button" onclick="showFoodProduction()">← Back</button>
         
         <div class="container">
-            <h1>Natural Nitrogen Cycle</h1>
-            <p class="subtitle">Before and After Industrial Production</p>
+            <h1>Societal Benefits</h1>
+            <p class="subtitle">Before and After Industrialization</p>
 
-            <h2 class="section-title">2. Reliance on Scare Nitrogen Sources:</h2>
+            <h2 class="section-title">2. Reliance on Scare Nitrogen Sources</h2>
 
         <div class="info-text slide-up-init">
-            <p>Before Haber, nitrogen fertilizers came from geographically limited deposits (eg. Chilean nitrates, animal manure from tropical islands).</p>
+            <p><strong>Before Haber</strong>, nitrogen fertilizers came from <strong>geographically limited deposits</strong> (eg. Chilean nitrates, animal manure from tropical islands).</p>
 
-            <p>Haber Process made converting inert atmospheric nitrogen gas (N2) to usable compounds like ammonia an industrial and scalable process. </p>
-
+            <p><strong>Haber Process</strong> made converting inert atmospheric nitrogen gas (N₂) to usable compounds like <strong>ammonia</strong> an industrial and scalable process.</p>
 
         </div>
 
@@ -906,19 +916,19 @@
             </div>
         </div>
         
-        <p style="color: white; text-align: center; margin-top: 30px; line-height: 1.6; font-size: 1em;">The shift from natural nitrogen sources to industrial production enabled exponential growth in agricultural output, making it possible to feed our rapidly expanding global population.</p>
         
-        <div class="slider-container slide-up-init" id="sliderContainer2">
+        
+        <div class="slider-container slide-up-init" id="sliderContainer2" style="margin-top:24px;">
             <!-- Emissions Side -->
             <div class="slider-image pre-haber" id="emissionsSide">
-                <div class="slider-label">Industrial Emissions</div>
-                <img src="images/ammonia-factory-removebg-preview.png" alt="Industrial emissions">
+                <div class="slider-label">Natural Deposits</div>
+                <img src="images/guanoBefore.png" alt="Natural Deposits">
             </div>
 
             <!-- Natural Sources Side -->
             <div class="slider-image modern-agriculture" id="cleanSide">
-                <div class="slider-label">Natural Sources</div>
-                <img src="images/farmers-cultivating-crops-in-field-agriculture-workers-planting-and-harvesting-organic-produce-on-sunny-day-photo.jpeg" alt="Natural sources">
+                <div class="slider-label">Industrialized</div>
+                <img src="images/guanoAfter.png" alt="Natural sources">
             </div>
 
             <!-- Slider Divider -->
