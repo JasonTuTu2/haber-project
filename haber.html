@@ -164,6 +164,98 @@
             display: block;
         }
 
+        .gh-emissions-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 18px;
+            align-items: stretch;
+            margin-bottom: 16px;
+        }
+
+        .gh-emissions-layout .image-placeholder.gh-image {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+            margin: 0;
+        }
+
+        .gh-gas-animation {
+            position: relative;
+            min-height: 220px;
+            border: 2px dashed rgba(125, 211, 252, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(to top, rgba(148, 163, 184, 0.2), rgba(15, 23, 42, 0.75));
+        }
+
+        .gh-smokestack {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 120px;
+            border-radius: 10px 10px 0 0;
+            background: linear-gradient(to bottom, #334155, #0f172a);
+            box-shadow: inset 0 0 0 2px rgba(148, 163, 184, 0.5);
+        }
+
+        .gh-gas-bubble {
+            position: absolute;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.28), rgba(148, 163, 184, 0.45));
+            border: 1px solid rgba(226, 232, 240, 0.4);
+            color: #e2e8f0;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            animation: ghGasRise 5.5s linear infinite;
+            opacity: 0;
+        }
+
+        .gh-gas-bubble.one {
+            width: 70px;
+            height: 70px;
+            margin-left: -56px;
+            animation-delay: 0s;
+        }
+
+        .gh-gas-bubble.two {
+            width: 58px;
+            height: 58px;
+            margin-left: 2px;
+            animation-delay: 1.4s;
+        }
+
+        .gh-gas-bubble.three {
+            width: 76px;
+            height: 76px;
+            margin-left: 48px;
+            animation-delay: 2.8s;
+        }
+
+        @keyframes ghGasRise {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, 0) scale(0.7);
+            }
+            12% {
+                opacity: 0.9;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -170px) scale(1.35);
+            }
+        }
+
         .reaction-block {
             margin: 22px 0;
             padding: 18px 16px;
@@ -629,6 +721,10 @@
 
         @media (max-width: 768px) {
             .explosives-image-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gh-emissions-layout {
                 grid-template-columns: 1fr;
             }
         }
@@ -1449,10 +1545,10 @@
 
         <div class="stats slide-up-init">
             <div class="stat-card">
-                <p>Countries relieved of geopolitical dependence from imports and mining.</p>
+                <p>Countries relieved of geopolitical <strong>dependence</strong> from imports and mining.</p>
             </div>
             <div class="stat-card">
-                <p>Enabled the widespread growth of global agriculture.</p>
+                <p>Enabled the <strong>widespread</strong> growth of global agriculture.</p>
             </div>
         </div>
         
@@ -1493,8 +1589,16 @@
             <p class="subtitle">Understanding the Downsides of Industrial Ammonia Production</p>
 
             <h2 class="section-title">Greenhouse Gas Emissions</h2>
-            <div class="image-placeholder gh-image slide-up-init" style="margin-bottom:16px;">
-                <img src="images/ammonia-factory-removebg-preview.png" alt="Ammonia factory" style="display:block; max-height:220px; max-width:320px; object-fit:contain;">
+            <div class="gh-emissions-layout slide-up-init">
+                <div class="image-placeholder gh-image">
+                    <img src="images/ammonia-factory-removebg-preview.png" alt="Ammonia factory" style="display:block; max-height:220px; max-width:320px; object-fit:contain;">
+                </div>
+                <div class="gh-gas-animation" aria-label="Animated greenhouse gas emissions">
+                    <div class="gh-smokestack"></div>
+                    <div class="gh-gas-bubble one">CO<sub>2</sub></div>
+                    <div class="gh-gas-bubble two">CH<sub>4</sub></div>
+                    <div class="gh-gas-bubble three">N<sub>2</sub>O</div>
+                </div>
             </div>
             <div class="info-text slide-up-init">
                 <p>The Haber Process uses energy and fossil fuels (like natural gas) to provide the required high temperatures and pressures.</p>
