@@ -1843,7 +1843,14 @@
         let hasAnimatedConnectionToElectrochemistry = false;
 
         // Navigation functions
+        function scrollToPageTop() {
+            window.scrollTo({ top: 0, behavior: 'auto' });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        }
+
         function showFoodProduction() {
+            scrollToPageTop();
             document.getElementById('introPage').classList.remove('active');
             document.getElementById('foodProductionPage').classList.add('active');
             document.getElementById('environmentalImpactPage').classList.remove('active');
@@ -1861,6 +1868,7 @@
         }
 
         function showNitrogenSources() {
+            scrollToPageTop();
             document.getElementById('introPage').classList.remove('active');
             document.getElementById('foodProductionPage').classList.remove('active');
             document.getElementById('environmentalImpactPage').classList.add('active');
@@ -1881,6 +1889,7 @@
         }
 
         function showEnvironmentalImpact() {
+            scrollToPageTop();
             document.getElementById('foodProductionPage').classList.remove('active');
             document.getElementById('environmentalImpactPage').classList.add('active');
 
@@ -1899,6 +1908,7 @@
         }
 
         function showConcerns() {
+            scrollToPageTop();
             document.getElementById('environmentalImpactPage').classList.remove('active');
             document.getElementById('concernsPage').classList.add('active');
             document.getElementById('practicalExamplesPage').classList.remove('active');
@@ -1917,6 +1927,7 @@
         }
 
         function showPracticalExamples() {
+            scrollToPageTop();
             document.getElementById('concernsPage').classList.remove('active');
             document.getElementById('practicalExamplesPage').classList.add('active');
             document.getElementById('explosivesManufacturingPage').classList.remove('active');
@@ -1934,6 +1945,7 @@
         }
 
         function showExplosivesManufacturing() {
+            scrollToPageTop();
             document.getElementById('practicalExamplesPage').classList.remove('active');
             document.getElementById('explosivesManufacturingPage').classList.add('active');
             document.getElementById('connectionToElectrochemistryPage').classList.remove('active');
@@ -1949,6 +1961,7 @@
         }
 
         function showConnectionToElectrochemistry() {
+            scrollToPageTop();
             document.getElementById('explosivesManufacturingPage').classList.remove('active');
             document.getElementById('connectionToElectrochemistryPage').classList.add('active');
 
@@ -1963,6 +1976,7 @@
         }
 
         function showIntro() {
+            scrollToPageTop();
             document.getElementById('foodProductionPage').classList.remove('active');
             document.getElementById('environmentalImpactPage').classList.remove('active');
             document.getElementById('concernsPage').classList.remove('active');
