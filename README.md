@@ -6,6 +6,7 @@ If you found this folder in Google Drive and want to view the site locally, foll
 
 - Download the whole folder, not just `haber.html`.
 - Keep the `images` folder where it is.
+- Extract the contents of the folder
 
 ## 2. Open the site (quickest way)
 
